@@ -6,13 +6,7 @@ const { initializeDatabase } = require("./db/db.connection");
 const { Student } = require("./models/students.model");
 const { Teacher } = require("./models/teachers.model");
 
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://myfrontend.vercel.app'
-  ],
-  credentials: true
-}))
+app.use(cors())
 app.use(express.json());
 
 initializeDatabase();
