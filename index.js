@@ -9,7 +9,7 @@ const { Teacher } = require("./models/teachers.model");
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://student-management-fe-iota.vercel.app/"
+    "https://student-management-fe-iota.vercel.app"
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
