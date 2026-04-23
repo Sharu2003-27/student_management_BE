@@ -6,7 +6,7 @@ const { initializeDatabase } = require("./db/db.connection");
 const { Student } = require("./models/students.model");
 const { Teacher } = require("./models/teachers.model");
 
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
 initializeDatabase();
@@ -68,12 +68,10 @@ app.delete("/students/:id", async (req, res) => {
       return res.status(404).json({ error: "Student not found" });
     }
 
-    res
-      .status(200)
-      .json({
-        message: "Student deleted successfully",
-        student: deletedStudent,
-      });
+    res.status(200).json({
+      message: "Student deleted successfully",
+      student: deletedStudent,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -105,7 +103,7 @@ app.put("/teachers/:id", async (req, res) => {
     const updatedTeacher = await Teacher.findByIdAndUpdate(
       teacherId,
       req.body,
-      { new: true }
+      { new: true },
     );
     if (!updatedTeacher) {
       return res.status(404).json({ message: "Teacher not found" });
